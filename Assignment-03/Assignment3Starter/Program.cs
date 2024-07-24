@@ -145,7 +145,7 @@ while (displayMainMenu)
                     string filepath = $"../../../{filename}";
 
                     // TODO: call the SaveWeeklyFile method here to save the weekly pay slip data in the current arrays
-                    SaveWeeklyFile(names, wages, hours, filename, logicalSize);
+                    SaveWeeklyFile(names, wages, hours, filepath, logicalSize);
                     Console.WriteLine("");
                 }
                 else
