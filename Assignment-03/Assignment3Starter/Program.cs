@@ -339,10 +339,16 @@ static int LoadEmployees(string[] names, double[] wages, double[] hours, string 
     {
         string line;
         StreamReader fileReader = new StreamReader(filename);
-        while (((line = fileReader.ReadLine() ?? "") != null) && 
-                (line.Length > 0) &&
-                (readCount < MAX_EMPLOYEE_COUNT))
+        while (!fileReader.EndOfStream && (readCount < MAX_EMPLOYEE_COUNT))
         {
+            // Read a line from file, and skip space lines
+            line = fileReader.ReadLine() ?? "";
+            if (line.Length <= 0)
+            {
+                continue;
+            }
+
+            // Split this lien into 2 parts
             string[] lineValues = line.Split(',');
             names[readCount] = lineValues[0];
             wages[readCount] = double.Parse(lineValues[1]);
@@ -388,10 +394,16 @@ static int LoadWeeklyFile(string[] names, double[] wages, double[] hours, string
     {
         string line;
         StreamReader fileReader = new StreamReader(filename);
-        while (((line = fileReader.ReadLine() ?? "") != null) &&
-                (line.Length > 0) &&
-                (readCount < MAX_EMPLOYEE_COUNT))
+        while (!fileReader.EndOfStream && (readCount < MAX_EMPLOYEE_COUNT))
         {
+            // Read a line from file, and skip space lines
+            line = fileReader.ReadLine() ?? "";
+            if (line.Length <= 0)
+            {
+                continue;
+            }
+
+            // Split this lien into 3 parts
             string[] lineValues = line.Split(',');
             names[readCount] = lineValues[0];
             wages[readCount] = double.Parse(lineValues[1]);
