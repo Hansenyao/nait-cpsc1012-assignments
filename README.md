@@ -1,2 +1,2 @@
 # nait-csharp-assignments
-4 projects for C# programming assignment
+The assignment projects for CPSC1012 (programming) at NAIT.
